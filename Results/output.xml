@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230214 11:57:59.974" rpa="false" schemaversion="3">
+<suite id="s1" name="Amazon" source="C:\development\robot-scripts\more readable - final\tests\amazon.robot">
+<test id="s1-t1" name="Logged out user can search for products" line="13">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230214 11:58:00.357" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230214 11:58:00.357" endtime="20230214 11:58:01.747"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:00.357" endtime="20230214 11:58:01.747"/>
+</kw>
+<kw name="Search for Products" library="AmazonApp">
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://www.amazon.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230214 11:58:01.749" level="INFO">Opening url 'http://www.amazon.com'</msg>
+<status status="PASS" starttime="20230214 11:58:01.748" endtime="20230214 11:58:04.158"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:01.748" endtime="20230214 11:58:04.158"/>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>You are on amazon.com.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230214 11:58:04.159" endtime="20230214 11:58:04.361"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:04.159" endtime="20230214 11:58:04.361"/>
+</kw>
+<kw name="Search for Products" library="TopNav">
+<kw name="Enter Search Term" library="TopNav">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=twotabsearchtextbox</arg>
+<arg>Ferrari 458</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230214 11:58:04.364" level="INFO">Typing text 'Ferrari 458' into text field 'id=twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20230214 11:58:04.363" endtime="20230214 11:58:04.687"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:04.362" endtime="20230214 11:58:04.687"/>
+</kw>
+<kw name="Submit Search" library="TopNav">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//*[@id="nav-search"]/form/div[2]/div/input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230214 11:58:04.688" level="INFO">Clicking button 'xpath=//*[@id="nav-search"]/form/div[2]/div/input'.</msg>
+<status status="PASS" starttime="20230214 11:58:04.688" endtime="20230214 11:58:04.906"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:04.687" endtime="20230214 11:58:04.906"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:04.362" endtime="20230214 11:58:04.906"/>
+</kw>
+<kw name="Verify Search Completed" library="SearchResults">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>results for "Ferrari 458"</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<msg timestamp="20230214 11:58:10.291" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230214 11:58:10.291" level="FAIL">Text 'results for "Ferrari 458"' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20230214 11:58:04.907" endtime="20230214 11:58:10.298"/>
+</kw>
+<status status="FAIL" starttime="20230214 11:58:04.907" endtime="20230214 11:58:10.298"/>
+</kw>
+<status status="FAIL" starttime="20230214 11:58:01.748" endtime="20230214 11:58:10.299"/>
+</kw>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230214 11:58:10.300" endtime="20230214 11:58:12.710"/>
+</kw>
+<status status="PASS" starttime="20230214 11:58:10.300" endtime="20230214 11:58:12.710"/>
+</kw>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20230214 11:58:00.356" endtime="20230214 11:58:12.710">Text 'results for "Ferrari 458"' did not appear in 5 seconds.</status>
+</test>
+<doc>This is some basic info about the whole suite</doc>
+<status status="FAIL" starttime="20230214 11:57:59.976" endtime="20230214 11:58:12.713"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Amazon">Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
